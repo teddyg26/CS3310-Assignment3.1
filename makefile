@@ -23,7 +23,7 @@ else
 	LIBS =
 endif
 
-any: min_heap.cpp huffman.cpp
+any: min_heap.cpp min_heap.h huffman.cpp
 	$(CC) $(CFLAGS) huffman.cpp -o huffman
 	./huffman
 

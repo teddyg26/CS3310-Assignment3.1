@@ -2,6 +2,7 @@
 #include <string>
 #include <cassert>
 #include <map>
+#include "min_heap.h"
 using namespace std;
 
 map<char, int> freqs = {
