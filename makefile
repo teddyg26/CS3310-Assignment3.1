@@ -27,6 +27,12 @@ any: node.h min_heap.h huffman.cpp
 	$(CC) $(CFLAGS) huffman.cpp -o huffman
 	./huffman
 
+# Note: 'leaks' is a macOS-specific tool. 
+# This will need to be adjusted for other OSes.
+memcheck: node.h min_heap.h huffman.cpp
+	$(CC) $(CFLAGS) huffman.cpp -o huffman
+	leaks --atExit -- ./huffman
+
 .PHONY: clean
 clean:
 	rm -f *.o huffman
