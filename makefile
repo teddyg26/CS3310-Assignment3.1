@@ -4,26 +4,26 @@ OS_NAME := $(shell uname -s)
 ifeq ($(OS_NAME),Linux)
 # Variables specific to Linux
 	CC = g++
-	CFLAGS = -Wall -g
+	CFLAGS = --std=c++17 -Wall -g
 	LIBS = -lm
 else ifeq ($(OS_NAME),Darwin) # macOS
 # Variables specific to macOS
 	CC = clang++
-	CFLAGS = -Wall -g
+	CFLAGS = --std=c++17 -Wall -g
 	LIBS = -framework CoreFoundation
 else ifeq ($(OS_NAME),Windows_NT) # Windows (using MinGW or Cygwin)
 # Variables specific to Windows
 	CC = g++
-	CFLAGS = -Wall
+	CFLAGS = --std=c++17 -Wall
 	LIBS = -lws2_32
 else
 # Default or fallback variables
 	CC = gcc
-	CFLAGS = -Wall
+	CFLAGS = --std=c++17 -Wall
 	LIBS =
 endif
 
-any: min_heap.cpp min_heap.h huffman.cpp
+any: node.h min_heap.h huffman.cpp
 	$(CC) $(CFLAGS) huffman.cpp -o huffman
 	./huffman
 
